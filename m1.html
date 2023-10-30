@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CalculandoAsKcal</title>
+    <style>
+        body{
+            background-color: rgb(156, 229, 229);
+            font: normal 14pt Arial;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculadora FIT</h1>
+    <p>Qual é o alimento que deseja calcular?</p>
+    <input type="text" name="alimento" id="alimento">
+    <input type="button" value="pesquisar"  onclick="pesquisar()">
+
+    <div id="calculadoracalorias" style="display: none;">
+    <div>
+        <input type="number" name="gramas1" id="gramas1" placeholder="gramas">
+        <input type="number" name="cal1" id="cal1" placeholder="calorias">
+    </div>
+
+    <div>
+        <input type="number" name="gramas2" id="gramas2" placeholder="gramas">
+        <input type="number" name="cal2" id="cal2" placeholder="???" readonly>
+    </div>
+    <div>
+        <input type="button" value="calcular" onclick="calcular()">
+    </div>
+<p id="resultado"></p>
+    </div>
+
+   
+ <script>
+    var escolha = document.getElementById('oq')
+    var calculadoracalorias = document.getElementById('calculadoracalorias')
+    var cal2 = document.getElementById('cal2')
+    var cal1 = document.getElementById('cal1')
+    var gramas2 = document.getElementById('gramas2')
+    var gramas1 = document.getElementById('gramas1')
+    var resultado = document.getElementById('resultado') 
+    
+    function pesquisar() {
+        calculadoracalorias.style.display ='block'
+   }
+    function calcular(){
+        var valor = gramas2.value*cal1.value
+        var valorcal = valor/gramas1.value
+
+        cal2.value = valorcal
+        resultado.innerHTML = `${gramas2.value} gramas de ${alimento.value} é igual a ${valorcal} calorias.`
+
+    }
+
+ </script>   
+
+    
+</body>
+</html>
